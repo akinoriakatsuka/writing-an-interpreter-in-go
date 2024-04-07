@@ -23,6 +23,17 @@ type Parser struct {
 	infixParseFns  map[token.TokenType]infixParseFn
 }
 
+const (
+	_ int = iota
+	LOWEST
+	EQUALS      // ==
+	LESSGREATER // > または <
+	SUM         // +
+	PRODUCT     // *
+	PREFIX      // -X または !X
+	CALL        // myFunction(X)
+)
+
 func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
 	p.prefixParseFns[tokenType] = fn
 }

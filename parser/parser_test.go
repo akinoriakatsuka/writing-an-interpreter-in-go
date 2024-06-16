@@ -197,7 +197,7 @@ func TestParsingExpressions(t *testing.T) {
 
 		exp, ok := stmt.Expression.(*ast.PrefixExpression)
 		if !ok {
-			t.Fatalf("exp is not ast.InfixExpression. got=%T", stmt.Expression)
+			t.Fatalf("exp is not ast.PrefixExpression. got=%T", stmt.Expression)
 		}
 		if exp.Operator != tt.operator {
 			t.Fatalf("exp.Operator is not '%s'. got=%s",

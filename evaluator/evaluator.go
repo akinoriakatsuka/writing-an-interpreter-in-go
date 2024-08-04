@@ -54,7 +54,7 @@ func evalPrefixExpression(operator string, right object.Object) object.Object {
 	switch operator {
 	case "!":
 		return evalBangOperatorExpression(right)
-	case "-" :
+	case "-":
 		return evalMinusPrefixOperatorExpression(right)
 	default:
 		return NULL
@@ -103,6 +103,14 @@ func evalIntegerInfixExpression(operator string, left object.Object, right objec
 		return &object.Integer{Value: leftVal * rightVal}
 	case "/":
 		return &object.Integer{Value: leftVal / rightVal}
+	case "<":
+		return nativeBoolToBooleanObject(leftVal < rightVal) 
+	case ">":
+		return nativeBoolToBooleanObject(leftVal > rightVal) 
+	case "==":
+		return nativeBoolToBooleanObject(leftVal == rightVal) 
+	case "!=":
+		return nativeBoolToBooleanObject(leftVal != rightVal) 
 	default:
 		return NULL
 	}

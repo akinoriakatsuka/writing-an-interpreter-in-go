@@ -61,7 +61,7 @@ func TestEvalBooleanExpression(t *testing.T) {
 
 }
 
-func TestBangOparator(t *testing.T) {
+func TestBangOperator(t *testing.T) {
 	tests := []struct {
 		input    string
 		expected bool

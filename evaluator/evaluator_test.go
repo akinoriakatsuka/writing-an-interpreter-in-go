@@ -171,6 +171,15 @@ func TestErrorHandling(t *testing.T) {
 			`,
 			"unknown operator: BOOLEAN + BOOLEAN",
 		},
+		{
+			`
+			if (10 > 1) {
+				true + false;
+				return 5;
+			}
+			`,
+			"unknown operator: BOOLEAN + BOOLEAN",
+		},
 	}
 
 	for _, tt := range tests {
